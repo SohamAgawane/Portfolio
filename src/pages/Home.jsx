@@ -32,7 +32,7 @@ export default function Home() {
         </div>
 
         {/* Dev Terminal Section */}
-        <div className="w-full mt-16 max-w-xl">
+        <div className="w-full mt-12 max-w-5xl">
           <DevSkillsTerminal />
         </div>
       </div>
