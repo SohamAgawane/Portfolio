@@ -7,7 +7,7 @@ export default function Resume() {
 
       <div className="w-full max-w-5xl aspect-[8.5/11]">
         <iframe
-          src="/Resume.pdf"
+          src="/resume.pdf"
           title="Soham Agawane Resume"
           className="w-full h-full rounded-xl border shadow-lg dark:border-white/10"
         />
