@@ -1,4 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+
+const skillsOutput = [
+  {
+    label: "",
+    value: "> show --skills",
+    labelColor: "text-red-500",
+    valueColor: "text-red-500",
+  },
+  {
+    label: "Languages:",
+    value: " JavaScript, TypeScript, Python, C++",
+    labelColor: "text-yellow-500",
+    valueColor: "text-green-600 dark:text-green-400",
+  },
+  {
+    label: "Frameworks:",
+    value: " React.js, Next.js, Node.js, Express.js, Tailwind CSS",
+    labelColor: "text-yellow-500",
+    valueColor: "text-green-600 dark:text-green-400",
+  },
+  {
+    label: "Databases:",
+    value: " MongoDB, MySQL, PostgreSQL",
+    labelColor: "text-yellow-500",
+    valueColor: "text-green-600 dark:text-green-400",
+  },
+  {
+    label: "Tools:",
+    value: " Git, Docker, AWS, Postman, GitHub, VS Code, Vim",
+    labelColor: "text-yellow-500",
+    valueColor: "text-green-600 dark:text-green-400",
+  },
+];
 
 export default function DevSkillsTerminal() {
   const [linesToShow, setLinesToShow] = useState(0);
@@ -40,29 +73,24 @@ export default function DevSkillsTerminal() {
 
   return (
     <div
-      className="rounded-lg px-4 py-5 mt-10 w-full max-w-2xl mx-auto shadow-md 
-      text-[13.5px] sm:text-[14px] font-mono
-      bg-gray-100 text-gray-800 dark:bg-[#1e1e1e] dark:text-green-400 transition-colors duration-300"
+      className="rounded-xl p-6 mt-14 w-full max-w-4xl mx-auto shadow-lg text-[15px] md:text-[16px]
+      font-mono transition-colors duration-300
+      bg-gray-100 text-gray-800 dark:bg-[#1e1e1e] dark:text-green-400"
     >
-      {/* Top bar */}
-      <div className="mb-3 flex space-x-1.5">
-        <span className="w-2.5 h-2.5 bg-red-500 rounded-full"></span>
-        <span className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></span>
-        <span className="w-2.5 h-2.5 bg-green-500 rounded-full"></span>
+      <div className="mb-4 flex space-x-2">
+        <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+        <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
+        <span className="w-3 h-3 bg-green-500 rounded-full"></span>
       </div>
 
-      {/* Printed lines */}
       <div>
         {skillsOutput.slice(0, linesToShow).map((line, idx) => (
           <p key={idx}>
-            {line.label && (
-              <span className={`${line.labelColor} font-medium`}>{line.label}</span>
-            )}
-            <span className={`${line.valueColor}`}>{line.value}</span>
+            {line.label && <span className={`${line.labelColor} font-medium`}>{line.label}</span>}
+            <span className={line.valueColor}>{line.value}</span>
           </p>
         ))}
 
-        {/* Currently typing line */}
         {linesToShow < skillsOutput.length && (
           <p>
             {skillsOutput[linesToShow].label && (
@@ -70,9 +98,7 @@ export default function DevSkillsTerminal() {
                 {typedLabel}
               </span>
             )}
-            <span className={`${skillsOutput[linesToShow].valueColor}`}>
-              {typedValue}
-            </span>
+            <span className={skillsOutput[linesToShow].valueColor}>{typedValue}</span>
             <span className="animate-blink font-bold text-lg align-middle">|</span>
           </p>
         )}
