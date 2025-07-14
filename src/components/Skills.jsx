@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+
 export default function DevSkillsTerminal() {
   const [linesToShow, setLinesToShow] = useState(0);
   const [typedLabel, setTypedLabel] = useState("");
