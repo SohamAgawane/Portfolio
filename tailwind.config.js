@@ -8,6 +8,10 @@ module.exports = {
         code: ["'Source Code Pro'", "monospace"],
         poppins: ["Poppins", "sans-serif"],
       },
+      container: {
+        center: true,
+        padding: '2rem',
+      },
       
     },
   },
