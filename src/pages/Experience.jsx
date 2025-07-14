@@ -114,12 +114,16 @@ const Typewriter = () => {
 
 export default function Experience() {
   return (
-    <div className="px-6 py-16 max-w-4xl mx-auto min-h-screen">
-      <h1 className="text-4xl font-bold mb-10 text-center">Professional Experience</h1>
+    <div className="px-4 sm:px-5 py-12 max-w-3xl mx-auto min-h-screen">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
+        Professional Experience
+      </h1>
 
-      <section className="space-y-6 leading-relaxed text-zinc-800 dark:text-zinc-200 text-[17px]">
+      <section className="space-y-5 leading-relaxed text-zinc-800 dark:text-zinc-200 text-[15px]">
         <div>
-          <h2 className="text-2xl font-semibold">Technical Intern</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">
+            Technical Intern
+          </h2>
           <p className="text-sm text-zinc-500 italic">
             PES Modern College of Engineering · Pune, India · Dec 2023 – Feb 2024
           </p>

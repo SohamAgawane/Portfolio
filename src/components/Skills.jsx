@@ -1,38 +1,3 @@
-import React, { useEffect, useState } from "react";
-
-const skillsOutput = [
-  {
-    label: "",
-    value: "> show --skills",
-    labelColor: "text-red-500",
-    valueColor: "text-red-500",
-  },
-  {
-    label: "Languages:",
-    value: " JavaScript, TypeScript, Python, C++",
-    labelColor: "text-yellow-500",
-    valueColor: "text-green-600 dark:text-green-400",
-  },
-  {
-    label: "Frameworks:",
-    value: " React.js, Next.js, Node.js, Express.js, Tailwind CSS",
-    labelColor: "text-yellow-500",
-    valueColor: "text-green-600 dark:text-green-400",
-  },
-  {
-    label: "Databases:",
-    value: " MongoDB, MySQL, PostgreSQL",
-    labelColor: "text-yellow-500",
-    valueColor: "text-green-600 dark:text-green-400",
-  },
-  {
-    label: "Tools:",
-    value: " Git, Docker, AWS, Postman, GitHub, VS Code, Vim",
-    labelColor: "text-yellow-500",
-    valueColor: "text-green-600 dark:text-green-400",
-  },
-];
-
 export default function DevSkillsTerminal() {
   const [linesToShow, setLinesToShow] = useState(0);
   const [typedLabel, setTypedLabel] = useState("");
@@ -57,7 +22,6 @@ export default function DevSkillsTerminal() {
         setTypedValue((prev) => prev + nextChar);
         setCharIndex((prev) => prev + 1);
       } else {
-        // Finished current line
         const delay = setTimeout(() => {
           setLinesToShow((prev) => prev + 1);
           setTypedLabel("");
@@ -74,15 +38,15 @@ export default function DevSkillsTerminal() {
 
   return (
     <div
-      className="rounded-xl p-6 mt-14 w-full max-w-4xl mx-auto shadow-lg text-[15px] md:text-[16px]
-        font-mono transition-colors duration-300
-        bg-gray-100 text-gray-800 dark:bg-[#1e1e1e] dark:text-green-400"
+      className="rounded-lg px-4 py-5 mt-10 w-full max-w-2xl mx-auto shadow-md 
+      text-[13.5px] sm:text-[14px] font-mono
+      bg-gray-100 text-gray-800 dark:bg-[#1e1e1e] dark:text-green-400 transition-colors duration-300"
     >
       {/* Top bar */}
-      <div className="mb-4 flex space-x-2">
-        <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-        <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
-        <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+      <div className="mb-3 flex space-x-1.5">
+        <span className="w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+        <span className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></span>
+        <span className="w-2.5 h-2.5 bg-green-500 rounded-full"></span>
       </div>
 
       {/* Printed lines */}
