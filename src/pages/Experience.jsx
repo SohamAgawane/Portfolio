@@ -89,7 +89,7 @@ const Typewriter = () => {
   }
 
   return (
-    <div className="mt-4 space-y-4 text-zinc-800 dark:text-zinc-200 font-medium text-[17px] leading-relaxed">
+    <div className="mt-4 space-y-4 text-zinc-800 dark:text-zinc-200 text-sm sm:text-base leading-relaxed">
       {sentences.slice(0, currentSentence).map((item, idx) =>
         item.type === "text" ? (
           <p className="mt-4" key={idx}>{item.content}</p>
@@ -119,7 +119,7 @@ export default function Experience() {
         Professional Experience
       </h1>
 
-      <section className="space-y-5 leading-relaxed text-zinc-800 dark:text-zinc-200 text-[15px]">
+      <section className="space-y-5 text-sm sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
         <div>
           <h2 className="text-lg sm:text-xl font-semibold">
             Technical Intern
