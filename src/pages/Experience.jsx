@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 const sentences = [
-  { type: "text", content: "At PES Modern College of Engineering, I contributed to a real-time collaborative platform as a full-stack developer." },
+  {
+    type: "text",
+    content:
+      "At PES Modern College of Engineering, I contributed to a real-time collaborative platform as a full-stack developer.",
+  },
   { type: "text", content: "Key highlights of my work include:" },
   {
     type: "bullets",
@@ -9,9 +13,13 @@ const sentences = [
       "Built nested comment threads with upvoting and WebSocket-based real-time features that supported seamless interactions for 50+ concurrent users.",
       "Developed a high-performance React frontend, achieving over 90% Lighthouse scores and integrating AWS S3 for efficient image/video uploads.",
       "Designed secure APIs with JWT auth and RBAC, and boosted MongoDB query speed by 75% through strategic indexing and denormalization.",
-    ]
+    ],
   },
-  { type: "text", content: "This experience sharpened my skills in real-time systems, scalable architecture, and secure web development." },
+  {
+    type: "text",
+    content:
+      "This experience sharpened my skills in real-time systems, scalable architecture, and secure web development.",
+  },
 ];
 
 const Typewriter = () => {
@@ -23,11 +31,9 @@ const Typewriter = () => {
 
   useEffect(() => {
     const alreadySeen = localStorage.getItem("experienceTypedOnce");
-
     if (alreadySeen === "true") {
       setHasAnimated(true);
     } else {
-      // Mark as seen immediately on first mount
       localStorage.setItem("experienceTypedOnce", "true");
     }
   }, []);
@@ -41,7 +47,7 @@ const Typewriter = () => {
         const timeout = setTimeout(() => {
           setTypedText((prev) => prev + current.content[charIndex]);
           setCharIndex((prev) => prev + 1);
-        }, 30); // Slower typing speed
+        }, 30);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
@@ -52,11 +58,10 @@ const Typewriter = () => {
         return () => clearTimeout(timeout);
       }
     } else {
-      // Handle bullet animations with a small delay between each
       if (bulletIndex < current.content.length) {
         const timeout = setTimeout(() => {
           setBulletIndex((prev) => prev + 1);
-        }, 300); // Typing speed for bullet points
+        }, 300);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
@@ -68,16 +73,19 @@ const Typewriter = () => {
     }
   }, [charIndex, currentSentence, hasAnimated, bulletIndex]);
 
+  const textClasses =
+    "text-sm sm:text-base text-zinc-800 dark:text-zinc-200 leading-relaxed";
+
   if (hasAnimated) {
     return (
-      <div className="mt-4 space-y-4 text-zinc-800 dark:text-zinc-200 font-medium text-[17px] leading-relaxed">
+      <div className={`mt-4 space-y-4 ${textClasses}`}>
         {sentences.map((item, idx) =>
           item.type === "text" ? (
-            <p className="mt-4" key={idx}>
+            <p className="mt-3" key={idx}>
               {item.content}
             </p>
           ) : (
-            <ul className="list-disc list-inside space-y-2 pl-4" key={idx}>
+            <ul className="list-disc list-inside space-y-1.5 pl-4" key={idx}>
               {item.content.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
@@ -89,12 +97,14 @@ const Typewriter = () => {
   }
 
   return (
-    <div className="mt-4 space-y-4 text-zinc-800 dark:text-zinc-200 text-sm sm:text-base leading-relaxed">
+    <div className={`mt-4 space-y-4 ${textClasses}`}>
       {sentences.slice(0, currentSentence).map((item, idx) =>
         item.type === "text" ? (
-          <p className="mt-4" key={idx}>{item.content}</p>
+          <p className="mt-3" key={idx}>
+            {item.content}
+          </p>
         ) : (
-          <ul className="list-disc list-inside space-y-2 pl-4" key={idx}>
+          <ul className="list-disc list-inside space-y-1.5 pl-4" key={idx}>
             {item.content.slice(0, bulletIndex).map((point, i) => (
               <li key={i}>{point}</li>
             ))}
@@ -102,12 +112,13 @@ const Typewriter = () => {
         )
       )}
 
-      {currentSentence < sentences.length && sentences[currentSentence].type === "text" && (
-        <p className="mt-4">
-          {typedText}
-          <span className="animate-blink font-bold text-lg align-middle">|</span>
-        </p>
-      )}
+      {currentSentence < sentences.length &&
+        sentences[currentSentence].type === "text" && (
+          <p className="mt-3">
+            {typedText}
+            <span className="animate-blink font-bold text-base align-middle">|</span>
+          </p>
+        )}
     </div>
   );
 };
@@ -116,7 +127,7 @@ export default function Experience() {
   return (
     <div className="px-4 sm:px-5 py-12 max-w-3xl mx-auto min-h-screen">
       <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
-        Professional Experience
+        Experience
       </h1>
 
       <section className="space-y-5 text-sm sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-200">

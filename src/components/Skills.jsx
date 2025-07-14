@@ -73,18 +73,19 @@ export default function DevSkillsTerminal() {
 
   return (
     <div
-      className="rounded-lg p-4 md:p-5 w-full max-w-5xl mx-auto shadow-md
-    text-sm sm:text-base leading-relaxed font-mono
-    bg-gray-100 text-gray-800 dark:bg-[#1e1e1e] dark:text-green-400
-    max-h-[260px] overflow-auto"
+      className="rounded-lg p-4 md:p-5 w-full max-w-3xl mx-auto shadow-md
+      text-sm sm:text-base leading-relaxed
+      text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-[#1e1e1e]
+      max-h-[260px] overflow-auto"
     >
-
+      {/* Top bar */}
       <div className="mb-4 flex space-x-2">
         <span className="w-3 h-3 bg-red-500 rounded-full"></span>
         <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
         <span className="w-3 h-3 bg-green-500 rounded-full"></span>
       </div>
 
+      {/* Output lines */}
       <div>
         {skillsOutput.slice(0, linesToShow).map((line, idx) => (
           <p key={idx}>
@@ -101,7 +102,7 @@ export default function DevSkillsTerminal() {
               </span>
             )}
             <span className={skillsOutput[linesToShow].valueColor}>{typedValue}</span>
-            <span className="animate-blink font-bold text-lg align-middle">|</span>
+            <span className="animate-blink font-bold text-base align-middle">|</span>
           </p>
         )}
       </div>
