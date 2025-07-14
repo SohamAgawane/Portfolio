@@ -21,11 +21,11 @@ export default function Home() {
           </div>
 
           {/* Profile Image */}
-          <div className="flex-1 max-w-sm">
+          <div className="flex-1 max-w-sm flex justify-center">
             <img
               src={profileImg}
               alt="Soham Agawane"
-              className="rounded-2xl shadow-xl w-full object-cover"
+              className="rounded-2xl shadow-xl w-full max-w-[250px] md:max-w-[300px] object-cover"
             />
           </div>
         </div>

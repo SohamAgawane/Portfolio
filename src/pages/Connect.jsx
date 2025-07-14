@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Github, Linkedin, Copy, Check } from "lucide-react";
 
-
 export default function Connect() {
   const [copied, setCopied] = useState(false);
   const email = "sohamagawane1503@gmail.com";
@@ -27,7 +26,7 @@ export default function Connect() {
         </span>
         <button
           onClick={handleCopy}
-          className="ml-2 p-1 rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-800 transition"
+          className="ml-2 p-1 rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-transform transform hover:scale-105"
           aria-label="Copy Email"
         >
           {copied ? (
@@ -70,7 +69,7 @@ export default function Connect() {
           href="mailto:sohamagawane1503@gmail.com"
           className="text-blue-500 underline"
         >
-           Let’s connect!
+          Let’s connect!
         </a>
       </p>
     </div>

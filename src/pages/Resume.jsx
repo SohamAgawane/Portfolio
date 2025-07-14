@@ -5,7 +5,8 @@ export default function Resume() {
     <div className="min-h-screen flex flex-col items-center justify-start px-4 py-10 bg-white dark:bg-[#0b0b0b]">
       <h1 className="text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">My Resume</h1>
 
-      <div className="w-full max-w-5xl aspect-[8.5/11]">
+      {/* Resume PDF container */}
+      <div className="w-full max-w-5xl aspect-[8.5/11] sm:w-full sm:h-[75vh] lg:h-[90vh]">
         <iframe
           src="/resume.pdf"
           title="Soham Agawane Resume"
@@ -13,6 +14,7 @@ export default function Resume() {
         />
       </div>
 
+      {/* Download Button */}
       <a
         href="/resume.pdf"
         target="_blank"

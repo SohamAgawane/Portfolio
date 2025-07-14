@@ -19,6 +19,7 @@ const Typewriter = () => {
   const [typedText, setTypedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [bulletIndex, setBulletIndex] = useState(0);
 
   useEffect(() => {
     const alreadySeen = localStorage.getItem("experienceTypedOnce");
@@ -40,7 +41,7 @@ const Typewriter = () => {
         const timeout = setTimeout(() => {
           setTypedText((prev) => prev + current.content[charIndex]);
           setCharIndex((prev) => prev + 1);
-        }, 18);
+        }, 30); // Slower typing speed
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
@@ -51,13 +52,21 @@ const Typewriter = () => {
         return () => clearTimeout(timeout);
       }
     } else {
-      // skip bullet animation
-      const timeout = setTimeout(() => {
-        setCurrentSentence((prev) => prev + 1);
-      }, 300); // small delay to feel consistent
-      return () => clearTimeout(timeout);
+      // Handle bullet animations with a small delay between each
+      if (bulletIndex < current.content.length) {
+        const timeout = setTimeout(() => {
+          setBulletIndex((prev) => prev + 1);
+        }, 300); // Typing speed for bullet points
+        return () => clearTimeout(timeout);
+      } else {
+        const timeout = setTimeout(() => {
+          setCurrentSentence((prev) => prev + 1);
+          setBulletIndex(0);
+        }, 600);
+        return () => clearTimeout(timeout);
+      }
     }
-  }, [charIndex, currentSentence, hasAnimated]);
+  }, [charIndex, currentSentence, hasAnimated, bulletIndex]);
 
   if (hasAnimated) {
     return (
@@ -86,7 +95,7 @@ const Typewriter = () => {
           <p className="mt-4" key={idx}>{item.content}</p>
         ) : (
           <ul className="list-disc list-inside space-y-2 pl-4" key={idx}>
-            {item.content.map((point, i) => (
+            {item.content.slice(0, bulletIndex).map((point, i) => (
               <li key={i}>{point}</li>
             ))}
           </ul>
