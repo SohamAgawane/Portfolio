@@ -74,10 +74,11 @@ export default function DevSkillsTerminal() {
   return (
     <div
       className="rounded-lg p-4 md:p-5 w-full max-w-5xl mx-auto shadow-md
-    text-sm md:text-[15px] font-mono
+    text-sm sm:text-base leading-relaxed font-mono
     bg-gray-100 text-gray-800 dark:bg-[#1e1e1e] dark:text-green-400
     max-h-[260px] overflow-auto"
     >
+
       <div className="mb-4 flex space-x-2">
         <span className="w-3 h-3 bg-red-500 rounded-full"></span>
         <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>

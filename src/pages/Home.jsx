@@ -18,7 +18,7 @@ export default function Home() {
             <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
               I'm a passionate full-stack developer with a strong interest in AI & Web3. I build scalable MERN apps, optimize backend APIs, and design user-first interfaces.
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Welcome to my portfolio!</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Welcome to my portfolio!</p>
           </div>
 
           {/* Profile Image */}
