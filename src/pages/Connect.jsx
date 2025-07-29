@@ -13,7 +13,7 @@ export default function Connect() {
 
   return (
     <div className="px-6 py-16 max-w-3xl mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-4">Let's Connect 🚀</h2>
+      <h2 className="text-3xl font-bold mb-4">Let's Connect</h2>
       <p className="text-zinc-600 dark:text-zinc-400 text-base mb-10">
         I'm always up for building cool stuff, collaborating on projects, or just talking tech. Feel free to drop a message or connect with me on socials!
       </p>
