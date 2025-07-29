@@ -4,14 +4,13 @@ import DevSkillsTerminal from "../components/Skills";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-white dark:bg-[#0b0b0b] text-gray-900 dark:text-white">
-      {/* 🔧 Smaller container */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-5 py-12 flex flex-col items-center">
+    <div className="min-h-screen w-full bg-white dark:bg-[#0b0b0b] text-gray-900 dark:text-white flex justify-center pt-20">
+      <div className="max-w-4xl w-full px-4 sm:px-5 flex flex-col items-center">
 
-        {/* Top Section: About + Image */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 w-full">
+        {/* Info + Photo row */}
+        <div className="w-full flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
           {/* About Me */}
-          <div className="flex-1 space-y-4">
+          <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
             <h1 className="text-2xl sm:text-3xl font-bold leading-tight">
               Hey, I'm Soham <span className="inline-block animate-wave">👋</span>
             </h1>
@@ -22,19 +21,22 @@ export default function Home() {
           </div>
 
           {/* Profile Image */}
-          <div className="flex-1 flex justify-center">
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <img
               src={profileImg}
               alt="Soham Agawane"
-              className="rounded-xl shadow-lg w-full max-w-[200px] md:max-w-[240px] object-cover"
+              className="rounded-xl shadow-lg w-[100px] md:w-[120px] object-cover"
             />
           </div>
         </div>
 
-        {/* Dev Terminal Section */}
-        <div className="w-full mt-12 max-w-xl">
-          <DevSkillsTerminal />
+        {/* DevSkillsTerminal centered below both */}
+        <div className="w-full flex justify-center mt-10 md:mt-16">
+          <div className="w-full max-w-xl">
+            <DevSkillsTerminal />
+          </div>
         </div>
+
       </div>
     </div>
   );
