@@ -28,7 +28,7 @@ export default function Navbar() {
         <Link to="/experience" className="hover:underline">Experience</Link>
         <Link to="/projects" className="hover:underline">Projects</Link>
 
-        {/* Resume opens PDF in new tab */}
+        {/* Opens PDF directly in new tab */}
         <a
           href="/resume.pdf"
           target="_blank"
