@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #FFFFFF;
+  --surface: #FAFAFA;
+  --text: #000000;
+  --text-secondary: #666666;
+  --border: #E0E0E0;
+  --lime: #CCFF00;
+}
+
+.dark {
+  --bg: #000000;
+  --surface: #0A0A0A;
+  --text: #FFFFFF;
+  --text-secondary: #999999;
+  --border: #333333;
+  --lime: #CCFF00;
+}
+
+::selection {
+  background-color: #CCFF00 !important;
+  color: #000000 !important;
+}
+
+::-moz-selection {
+  background-color: #CCFF00 !important;
+  color: #000000 !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.github-chart svg rect {
+  fill: #2d2d2d;
+}
+
+.github-chart svg rect[fill="#ebedf0"] {
+  fill: #2d2d2d;
+}
+
+.github-chart svg rect[fill="#9be9a8"] {
+  fill: #4c7a5d;
+}
+
+.github-chart svg rect[fill="#40c463"] {
+  fill: #3fa66a;
+}
+
+.github-chart svg rect[fill="#30a14e"] {
+  fill: #2f7d57;
+}
+
+.github-chart svg rect[fill="#216e39"] {
+  fill: #1f5f3a;
+}
+
+.glow {
+  position: relative;
+  pointer-events: none;
+}
+
+.glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  padding: var(--glowingeffect-border-width);
+
+  background: var(--gradient);
+  background-attachment: fixed;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  opacity: var(--active);
+  transition: opacity 0.3s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Pulse animation for status dot */
+@keyframes pulse-lime {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(204, 255, 0, 0.7);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 0 6px rgba(204, 255, 0, 0);
+  }
+}
+
+.pulse-lime {
+  animation: pulse-lime 2s ease-in-out infinite;
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanline {
+  animation: scanline 4s linear infinite;
+}
+
+/* Neon border travel */
+@keyframes border-travel {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Audio bars */
+@keyframes audio-bar {
+
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 0%;
+    --radius: 0rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 100%;
+  }
+}
